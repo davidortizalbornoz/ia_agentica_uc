@@ -2,6 +2,12 @@
 
 Repositorio para incorporar los ejercicios propuestos y las partes guiadas del curso.
 
+**Dueño del repositorio:** 
+
+David Ortiz Albornoz  
+dortiza@uc.cl  
+david.ortiz.albornoz@gmail.com
+
 ## Programa
 
 Magíster en Inteligencia Artificial (MIA - UC)
@@ -25,6 +31,5 @@ Cada clase vive en su propia carpeta. La clase 1 incluye el notebook de Colab, l
 | `CLASE_1/parte_guiada/` | Script local de esa misma práctica, más `common.py` y `entorno_local.py`. |
 | `CLASE_1/ejercicios/` | Ejercicios propuestos, cada uno con su script y su guía de ejecución. |
 
-Las funciones compartidas (`leer_clave`, `elegir_modelo`, `generar`, `costo_usd` y `contar_tokens`) están en `CLASE_1/parte_guiada`. La key y la lista de modelos se leen desde un archivo `.env` en la raíz, a partir de `.env.sample`.
 
 La forma de ejecutar cada recurso está al inicio de su markdown.
