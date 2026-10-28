@@ -14,10 +14,13 @@ filas = []
 for temp in [0.0, 0.7, 1.0]:
     respuesta = generar(prompt, temperature=temp, max_output_tokens=200)
     u = respuesta.usage_metadata
+    texto = respuesta.text
+    if u is None or texto is None:
+        raise SystemExit("La respuesta del modelo llegó sin texto o sin datos de uso.")
     tokens_salida = (u.candidates_token_count or 0) + (u.thoughts_token_count or 0)
     filas.append({
         "temperature": temp,
-        "respuesta": respuesta.text.strip(),
+        "respuesta": texto.strip(),
         "tokens_salida": tokens_salida,
     })
 

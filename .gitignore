@@ -1,2 +1,5 @@
 .env
 /CLASE_1/parte_guiada/__pycache__
+.DS_Store
+/.vscode
+/CLASE_2/ejercicios/__pycache__

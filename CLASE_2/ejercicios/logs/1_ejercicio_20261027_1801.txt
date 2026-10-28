@@ -1,0 +1,211 @@
+(ia_agentica_uc) Ext_DHOrtizA@CLFTCMYPC6YVNJ9 ia_agentica_uc % python "CLASE_2/ejercicios/1_ejercicio_subir_exactitud_casos_dificiles.py"
+Consultando v1_vago, ciclo 1 de 3...
+Consultando v1_vago, ciclo 2 de 3...
+Consultando v1_vago, ciclo 3 de 3...
+Consultando v2_estructurado, ciclo 1 de 3...
+Consultando v2_estructurado, ciclo 2 de 3...
+Consultando v2_estructurado, ciclo 3 de 3...
+Consultando v3_con_ejemplos, ciclo 1 de 3...
+Consultando v3_con_ejemplos, ciclo 2 de 3...
+Consultando v3_con_ejemplos, ciclo 3 de 3...
+Consultando v4_mejorado, ciclo 1 de 3...
+Consultando v4_mejorado, ciclo 2 de 3...
+Consultando v4_mejorado, ciclo 3 de 3...
+
+MODELO: gemini-3.5-flash-lite
+
+RESPUESTA DEL MODELO · v1_vago
+N   Correo                                            Clasificación  Ciclo 1                Ciclo 2                Ciclo 3              
+----------------------------------------------------------------------------------------------------------------------------------------
+1   La factura 7781 tiene el RUT equivocado, ¿pue...  facturacion    facturación            facturación            facturación          
+2   No me llega el correo de confirmación cuando ...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+3   El pedido P-1004 llegó con dos cajas rotas y ...  reclamo        reclamos               reclamos               reclamos             
+4   ¿Tienen cobertura a Punta Arenas?                 otro           consultas comerciales  consultas comerciales  información comercial
+5   Pagué dos veces el mismo pedido, necesito la ...  facturacion    facturación            facturación            facturación          
+6   La API devuelve error 500 al consultar el est...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+7   Llevo tres días esperando respuesta de su eje...  reclamo        reclamos               atención al cliente    atención al cliente  
+8   Quisiera una cotización para 200 pallets mens...  otro           consultas comerciales  consultas comerciales  información comercial
+9   ¿Pueden enviar la factura en formato electrón...  facturacion    facturación            facturación            facturación          
+10  La app móvil se cierra sola al abrir el track...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+11  El transportista fue grosero con nuestro bode...  reclamo        reclamos               reclamos               reclamos             
+12  ¿Cuál es el horario de recepción en la bodega...  otro           consultas comerciales  atención al cliente    información comercial
+13  El monto de la nota de crédito no coincide co...  facturacion    facturación            facturación            facturación          
+14  No puedo restablecer mi contraseña, el link e...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+15  Mi pedido dice entregado pero nunca llegó.        reclamo        reclamos               reclamos               logística            
+16  Gracias por resolver tan rápido el tema de la...  otro           agradecimientos        atención al cliente    atención al cliente  
+17  Qué maravilla, tercer despacho atrasado este ...  reclamo        reclamos               reclamos               reclamos             
+18  El tracking dice 'entregado' desde ayer, pero...  reclamo        reclamos               reclamos               logística            
+19  ¿Me pueden explicar por qué la factura de oct...  facturacion    facturación            facturación            facturación          
+20  Necesito integrar su API con nuestro ERP, ¿ti...  otro           consultas comerciales  consultas comerciales  soporte técnico      
+21  Mi ejecutiva dijo que me llamaría el lunes po...  reclamo        reclamos               atención al cliente    atención al cliente  
+22  Hola, buenas tardes.                              otro           otros                  spam o indefinido      otros                
+23  El sistema muestra el P-1002 como 'en prepara...  tecnico        soporte técnico        soporte técnico        logística            
+24  Good morning, could you send me the invoice f...  facturacion    facturación            facturación            facturación          
+25  Dejé de recibir notificaciones desde que camb...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+26  ¿Pueden cotizar 50 pallets a Punta Arenas? La...  otro           consultas comerciales  consultas comerciales  información comercial
+27  Se me olvidó la clave del portal, pero no es ...  tecnico        soporte técnico        soporte técnico        soporte técnico      
+28  Adjunto la foto de las cajas mojadas que lleg...  reclamo        reclamos               reclamos               reclamos             
+29  ¿El reembolso del pedido duplicado ya fue pro...  facturacion    facturación            facturación            facturación          
+30  O pedido chegou com a embalagem rasgada e fal...  reclamo        reclamos               reclamos               reclamos             
+31  asdfgh 1234 prueba                                otro           spam                   spam o indefinido      otros                
+
+RESPUESTA DEL MODELO · v2_estructurado
+N   Correo                                            Clasificación  Ciclo 1      Ciclo 2      Ciclo 3    
+----------------------------------------------------------------------------------------------------------
+1   La factura 7781 tiene el RUT equivocado, ¿pue...  facturacion    facturacion  facturacion  facturacion
+2   No me llega el correo de confirmación cuando ...  tecnico        tecnico      tecnico      tecnico    
+3   El pedido P-1004 llegó con dos cajas rotas y ...  reclamo        reclamo      reclamo      reclamo    
+4   ¿Tienen cobertura a Punta Arenas?                 otro           otro         otro         otro       
+5   Pagué dos veces el mismo pedido, necesito la ...  facturacion    facturacion  facturacion  facturacion
+6   La API devuelve error 500 al consultar el est...  tecnico        tecnico      tecnico      tecnico    
+7   Llevo tres días esperando respuesta de su eje...  reclamo        reclamo      reclamo      reclamo    
+8   Quisiera una cotización para 200 pallets mens...  otro           otro         otro         otro       
+9   ¿Pueden enviar la factura en formato electrón...  facturacion    facturacion  facturacion  facturacion
+10  La app móvil se cierra sola al abrir el track...  tecnico        tecnico      tecnico      tecnico    
+11  El transportista fue grosero con nuestro bode...  reclamo        reclamo      reclamo      reclamo    
+12  ¿Cuál es el horario de recepción en la bodega...  otro           otro         otro         otro       
+13  El monto de la nota de crédito no coincide co...  facturacion    facturacion  facturacion  facturacion
+14  No puedo restablecer mi contraseña, el link e...  tecnico        tecnico      tecnico      tecnico    
+15  Mi pedido dice entregado pero nunca llegó.        reclamo        reclamo      reclamo      reclamo    
+16  Gracias por resolver tan rápido el tema de la...  otro           facturacion  facturacion  facturacion
+17  Qué maravilla, tercer despacho atrasado este ...  reclamo        reclamo      reclamo      reclamo    
+18  El tracking dice 'entregado' desde ayer, pero...  reclamo        reclamo      reclamo      reclamo    
+19  ¿Me pueden explicar por qué la factura de oct...  facturacion    facturacion  facturacion  facturacion
+20  Necesito integrar su API con nuestro ERP, ¿ti...  otro           tecnico      tecnico      tecnico    
+21  Mi ejecutiva dijo que me llamaría el lunes po...  reclamo        reclamo      reclamo      reclamo    
+22  Hola, buenas tardes.                              otro           otro         otro         otro       
+23  El sistema muestra el P-1002 como 'en prepara...  tecnico        tecnico      tecnico      tecnico    
+24  Good morning, could you send me the invoice f...  facturacion    facturacion  facturacion  facturacion
+25  Dejé de recibir notificaciones desde que camb...  tecnico        facturacion  facturacion  facturacion
+26  ¿Pueden cotizar 50 pallets a Punta Arenas? La...  otro           otro         otro         otro       
+27  Se me olvidó la clave del portal, pero no es ...  tecnico        tecnico      tecnico      tecnico    
+28  Adjunto la foto de las cajas mojadas que lleg...  reclamo        reclamo      reclamo      reclamo    
+29  ¿El reembolso del pedido duplicado ya fue pro...  facturacion    facturacion  facturacion  facturacion
+30  O pedido chegou com a embalagem rasgada e fal...  reclamo        reclamo      reclamo      reclamo    
+31  asdfgh 1234 prueba                                otro           otro         otro         otro       
+
+RESPUESTA DEL MODELO · v3_con_ejemplos
+N   Correo                                            Clasificación  Ciclo 1      Ciclo 2      Ciclo 3    
+----------------------------------------------------------------------------------------------------------
+1   La factura 7781 tiene el RUT equivocado, ¿pue...  facturacion    facturacion  facturacion  facturacion
+2   No me llega el correo de confirmación cuando ...  tecnico        tecnico      tecnico      tecnico    
+3   El pedido P-1004 llegó con dos cajas rotas y ...  reclamo        reclamo      reclamo      reclamo    
+4   ¿Tienen cobertura a Punta Arenas?                 otro           otro         otro         otro       
+5   Pagué dos veces el mismo pedido, necesito la ...  facturacion    facturacion  facturacion  facturacion
+6   La API devuelve error 500 al consultar el est...  tecnico        tecnico      tecnico      tecnico    
+7   Llevo tres días esperando respuesta de su eje...  reclamo        reclamo      reclamo      reclamo    
+8   Quisiera una cotización para 200 pallets mens...  otro           otro         otro         otro       
+9   ¿Pueden enviar la factura en formato electrón...  facturacion    facturacion  facturacion  facturacion
+10  La app móvil se cierra sola al abrir el track...  tecnico        tecnico      tecnico      tecnico    
+11  El transportista fue grosero con nuestro bode...  reclamo        reclamo      reclamo      reclamo    
+12  ¿Cuál es el horario de recepción en la bodega...  otro           otro         otro         otro       
+13  El monto de la nota de crédito no coincide co...  facturacion    facturacion  facturacion  facturacion
+14  No puedo restablecer mi contraseña, el link e...  tecnico        tecnico      tecnico      tecnico    
+15  Mi pedido dice entregado pero nunca llegó.        reclamo        reclamo      reclamo      reclamo    
+16  Gracias por resolver tan rápido el tema de la...  otro           facturacion  facturacion  facturacion
+17  Qué maravilla, tercer despacho atrasado este ...  reclamo        reclamo      reclamo      reclamo    
+18  El tracking dice 'entregado' desde ayer, pero...  reclamo        reclamo      reclamo      reclamo    
+19  ¿Me pueden explicar por qué la factura de oct...  facturacion    facturacion  facturacion  facturacion
+20  Necesito integrar su API con nuestro ERP, ¿ti...  otro           tecnico      tecnico      tecnico    
+21  Mi ejecutiva dijo que me llamaría el lunes po...  reclamo        reclamo      reclamo      reclamo    
+22  Hola, buenas tardes.                              otro           otro         otro         otro       
+23  El sistema muestra el P-1002 como 'en prepara...  tecnico        tecnico      tecnico      tecnico    
+24  Good morning, could you send me the invoice f...  facturacion    facturacion  facturacion  facturacion
+25  Dejé de recibir notificaciones desde que camb...  tecnico        facturacion  tecnico      facturacion
+26  ¿Pueden cotizar 50 pallets a Punta Arenas? La...  otro           otro         otro         otro       
+27  Se me olvidó la clave del portal, pero no es ...  tecnico        tecnico      tecnico      tecnico    
+28  Adjunto la foto de las cajas mojadas que lleg...  reclamo        reclamo      reclamo      reclamo    
+29  ¿El reembolso del pedido duplicado ya fue pro...  facturacion    facturacion  facturacion  facturacion
+30  O pedido chegou com a embalagem rasgada e fal...  reclamo        reclamo      reclamo      reclamo    
+31  asdfgh 1234 prueba                                otro           otro         otro         otro       
+
+RESPUESTA DEL MODELO · v4_mejorado
+N   Correo                                            Clasificación  Ciclo 1      Ciclo 2      Ciclo 3    
+----------------------------------------------------------------------------------------------------------
+1   La factura 7781 tiene el RUT equivocado, ¿pue...  facturacion    facturacion  facturacion  facturacion
+2   No me llega el correo de confirmación cuando ...  tecnico        tecnico      tecnico      tecnico    
+3   El pedido P-1004 llegó con dos cajas rotas y ...  reclamo        reclamo      reclamo      reclamo    
+4   ¿Tienen cobertura a Punta Arenas?                 otro           otro         otro         otro       
+5   Pagué dos veces el mismo pedido, necesito la ...  facturacion    facturacion  facturacion  facturacion
+6   La API devuelve error 500 al consultar el est...  tecnico        tecnico      tecnico      tecnico    
+7   Llevo tres días esperando respuesta de su eje...  reclamo        reclamo      reclamo      reclamo    
+8   Quisiera una cotización para 200 pallets mens...  otro           otro         otro         otro       
+9   ¿Pueden enviar la factura en formato electrón...  facturacion    facturacion  facturacion  facturacion
+10  La app móvil se cierra sola al abrir el track...  tecnico        tecnico      tecnico      tecnico    
+11  El transportista fue grosero con nuestro bode...  reclamo        reclamo      reclamo      reclamo    
+12  ¿Cuál es el horario de recepción en la bodega...  otro           otro         otro         otro       
+13  El monto de la nota de crédito no coincide co...  facturacion    facturacion  facturacion  facturacion
+14  No puedo restablecer mi contraseña, el link e...  tecnico        tecnico      tecnico      tecnico    
+15  Mi pedido dice entregado pero nunca llegó.        reclamo        reclamo      reclamo      reclamo    
+16  Gracias por resolver tan rápido el tema de la...  otro           otro         otro         otro       
+17  Qué maravilla, tercer despacho atrasado este ...  reclamo        reclamo      reclamo      reclamo    
+18  El tracking dice 'entregado' desde ayer, pero...  reclamo        reclamo      reclamo      reclamo    
+19  ¿Me pueden explicar por qué la factura de oct...  facturacion    facturacion  facturacion  facturacion
+20  Necesito integrar su API con nuestro ERP, ¿ti...  otro           otro         otro         otro       
+21  Mi ejecutiva dijo que me llamaría el lunes po...  reclamo        reclamo      reclamo      reclamo    
+22  Hola, buenas tardes.                              otro           otro         otro         otro       
+23  El sistema muestra el P-1002 como 'en prepara...  tecnico        tecnico      tecnico      tecnico    
+24  Good morning, could you send me the invoice f...  facturacion    facturacion  facturacion  facturacion
+25  Dejé de recibir notificaciones desde que camb...  tecnico        tecnico      tecnico      tecnico    
+26  ¿Pueden cotizar 50 pallets a Punta Arenas? La...  otro           otro         otro         otro       
+27  Se me olvidó la clave del portal, pero no es ...  tecnico        tecnico      tecnico      tecnico    
+28  Adjunto la foto de las cajas mojadas que lleg...  reclamo        reclamo      reclamo      reclamo    
+29  ¿El reembolso del pedido duplicado ya fue pro...  facturacion    facturacion  facturacion  facturacion
+30  O pedido chegou com a embalagem rasgada e fal...  reclamo        reclamo      reclamo      reclamo    
+31  asdfgh 1234 prueba                                otro           otro         otro         otro       
+
+CICLOS  ·  31 correos, 3 ciclos por versión
+Versión          Ciclo  Aciertos  Exactitud   Fáciles  Difíciles
+----------------------------------------------------------------
+v1_vago              1   0 de 31       0.0%   0 de 15    0 de 16
+v1_vago              2   0 de 31       0.0%   0 de 15    0 de 16
+v1_vago              3   0 de 31       0.0%   0 de 15    0 de 16
+v2_estructurado      1  28 de 31      90.3%  15 de 15   13 de 16
+v2_estructurado      2  28 de 31      90.3%  15 de 15   13 de 16
+v2_estructurado      3  28 de 31      90.3%  15 de 15   13 de 16
+v3_con_ejemplos      1  28 de 31      90.3%  15 de 15   13 de 16
+v3_con_ejemplos      2  29 de 31      93.5%  15 de 15   14 de 16
+v3_con_ejemplos      3  28 de 31      90.3%  15 de 15   13 de 16
+v4_mejorado          1  31 de 31     100.0%  15 de 15   16 de 16
+v4_mejorado          2  31 de 31     100.0%  15 de 15   16 de 16
+v4_mejorado          3  31 de 31     100.0%  15 de 15   16 de 16
+
+COMPARACIÓN DE SYSTEM PROMPTS
+Un acierto es un correo cuya categoría coincide con la clasificación.
+Versión          Promedio  Mínimo  Máximo   Fáciles  Difíciles
+--------------------------------------------------------------
+v1_vago              0.0%    0.0%    0.0%   0 de 15    0 de 16
+v2_estructurado     90.3%   90.3%   90.3%  15 de 15   13 de 16
+v3_con_ejemplos     91.4%   90.3%   93.5%  15 de 15   13 de 16
+v4_mejorado        100.0%  100.0%  100.0%  15 de 15   16 de 16
+
+FÓRMULAS
+Promedio = suma de aciertos / (ciclos × correos). Mínimo y máximo salen del peor y del mejor ciclo.
+Fáciles y difíciles de la comparación son los del último ciclo.
+Versión          Aciertos de los ciclos                Promedio             Mínimo             Máximo
+-----------------------------------------------------------------------------------------------------
+v1_vago                   0 + 0 + 0 = 0     0 / (3 × 31) = 0.0%     0 de 31 = 0.0%     0 de 31 = 0.0%
+v2_estructurado       28 + 28 + 28 = 84   84 / (3 × 31) = 90.3%   28 de 31 = 90.3%   28 de 31 = 90.3%
+v3_con_ejemplos       28 + 29 + 28 = 85   85 / (3 × 31) = 91.4%   28 de 31 = 90.3%   29 de 31 = 93.5%
+v4_mejorado           31 + 31 + 31 = 93  93 / (3 × 31) = 100.0%  31 de 31 = 100.0%  31 de 31 = 100.0%
+
+DÓNDE FALLA
+Último ciclo de cada versión, salvo v1: inventa los nombres de las categorías.
+N   Correo                                            Clasificación  Dificultad  v2_estructurado  v3_con_ejemplos  v4_mejorado
+------------------------------------------------------------------------------------------------------------------------------
+16  Gracias por resolver tan rápido el tema de la...  otro           dificil     facturacion      facturacion      otro       
+20  Necesito integrar su API con nuestro ERP, ¿ti...  otro           dificil     tecnico          tecnico          otro       
+25  Dejé de recibir notificaciones desde que camb...  tecnico        dificil     facturacion      facturacion      tecnico    
+
+CASOS INESTABLES
+La misma versión cambió la categoría entre ciclos. v1 no entra.
+Versión          Casos
+----------------------
+v2_estructurado      0
+v3_con_ejemplos      1
+v4_mejorado          0
+
+Versión          N   Correo                                            Clasificación  Dificultad  Ciclo 1      Ciclo 2  Ciclo 3    
+-----------------------------------------------------------------------------------------------------------------------------------
+v3_con_ejemplos  25  Dejé de recibir notificaciones desde que camb...  tecnico        dificil     facturacion  tecnico  facturacion
+(ia_agentica_uc) Ext_DHOrtizA@CLFTCMYPC6YVNJ9 ia_agentica_uc % 

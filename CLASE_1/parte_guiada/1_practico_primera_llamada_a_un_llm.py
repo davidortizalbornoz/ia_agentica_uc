@@ -28,6 +28,8 @@ if __name__ == "__main__":
     print("______________________________________________\n")
 
     u = respuesta.usage_metadata
+    if u is None:
+        raise SystemExit("La respuesta del modelo llegó sin datos de uso.")
     print("tokens de entrada (prompt)   :", u.prompt_token_count)
     print("tokens de salida (respuesta) :", u.candidates_token_count)
     print("tokens de razonamiento       :", u.thoughts_token_count or 0, "  <- algunos modelos 'piensan' antes de responder y eso también son tokens")
@@ -53,6 +55,9 @@ if __name__ == "__main__":
         print(f"--- temperature={temp} ---")
         for _ in range(3):
             r = generar(prompt, temperature=temp, max_output_tokens=40)
-            print(" ·", r.text.strip())
+            texto = r.text
+            if texto is None:
+                raise SystemExit("La respuesta del modelo llegó sin texto.")
+            print(" ·", texto.strip())
 
     print("\n FIN SCRIPT")

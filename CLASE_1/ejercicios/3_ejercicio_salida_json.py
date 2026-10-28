@@ -27,9 +27,12 @@ def extraer(frase):
         max_output_tokens=200,
         response_mime_type="application/json",
     )
-    datos = json.loads(respuesta.text)
+    texto = respuesta.text
+    if texto is None:
+        raise SystemExit(f"La respuesta para {frase!r} llegó sin texto.")
+    datos = json.loads(texto)
     if not isinstance(datos, dict):
-        raise SystemExit(f"La respuesta no es un objeto JSON: {respuesta.text}")
+        raise SystemExit(f"La respuesta no es un objeto JSON: {texto}")
     for clave in ("producto", "cantidad", "ciudad"):
         if clave not in datos or datos[clave] in ("", "null"):
             datos[clave] = None

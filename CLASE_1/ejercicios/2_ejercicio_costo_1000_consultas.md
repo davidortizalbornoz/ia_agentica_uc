@@ -43,7 +43,9 @@ pip install google-genai
 python "CLASE_1/ejercicios/2_ejercicio_costo_1000_consultas.py"
 ```
 
-El script hace en paralelo la misma consulta («¿Qué es un token?») con dos modelos: el elegido desde `PREFERIDOS` y `gemini-3.8-flash`. El tope de salida es 1024 tokens porque en `gemini-3.8-flash` ese límite incluye el razonamiento; con un tope bajo la frase visible queda cortada. Imprime cada respuesta y después una tabla. La primera columna de datos es el modelo elegido y la segunda es `gemini-3.8-flash`. Las filas son tokens de entrada, de salida, de razonamiento y total, más el costo de una consulta, el diario (1.000 consultas) y el mensual (30 días). El costo de cada columna usa el precio de ese modelo y suma los tokens de razonamiento a los de salida. Comprueba el intérprete con `python --version`; tiene que mostrar `Python 3.13.5`.
+El script hace en paralelo la misma consulta («¿Qué es un token?») con dos modelos: el elegido desde `PREFERIDOS` y `gemini-3.8-flash`. El tope de salida es 1024 tokens porque en `gemini-3.8-flash` ese límite incluye el razonamiento; con un tope bajo la frase visible queda cortada. Imprime cada respuesta y después dos tablas con el mismo formato. La primera columna de datos es el modelo elegido y la segunda es `gemini-3.8-flash`. Las filas son tokens de entrada, de salida, de razonamiento y total, más el costo de una consulta, el diario (1.000 consultas) y el mensual (30 días). El costo de cada columna usa el precio de ese modelo y suma los tokens de razonamiento a los de salida.
+
+La primera tabla usa los tokens medidos en la llamada. La segunda no vuelve a consultar al modelo: deja iguales la salida y el razonamiento, y recalcula la entrada como un system prompt fijo de 2000 tokens, con el mismo volumen de 1.000 consultas al día por 30 días. Comprueba el intérprete con `python --version`; tiene que mostrar `Python 3.13.5`.
 
 ## Ejemplo de ejecución
 
@@ -54,24 +56,37 @@ ______________________________________________
 
 Modelo: gemini-3.5-flash-lite
 Respuesta:
-Un token es la unidad básica de texto —como una palabra o parte de ella— que un modelo de lenguaje procesa y comprende. En la IA agéntica, representan tanto el costo computacional como la "memoria" que los agentes pueden leer y generar.
-tiempo de respuesta: 6644 ms
+Un token es la unidad básica en la que un modelo de lenguaje divide el texto, pudiendo ser una palabra, parte de ella o un signo de puntuación. Los LLMs no leen letras, sino que procesan y generan secuencias de estos fragmentos numéricos. En la IA agéntica, controlar el consumo de tokens es vital para optimizar costos y mantener la memoria del agente dentro de su ventana de contexto.
+tiempo de respuesta: 1569 ms
 
 Modelo: gemini-3.8-flash
 Respuesta:
-Un token es la unidad básica de información (como una palabra, una parte de ella o un signo de puntuación) que un modelo de lenguaje procesa para entender y generar texto. En la IA agéntica, los tokens son fundamentales porque determinan el costo operativo, la capacidad de memoria del agente y el límite de su ventana de contexto. En resumen, es la forma en que el modelo fragmenta y cuantifica el lenguaje humano para poder razonar y actuar.
-tiempo de respuesta: 77506 ms
+Un token es la unidad básica de texto (como una palabra, fragmento de palabra o puntuación) que un modelo de lenguaje procesa y genera. En la IA agéntica, los tokens representan tanto las percepciones del entorno y llamadas a herramientas, como el razonamiento interno y las acciones del agente. Gestionarlos bien es crucial, ya que definen el límite de la memoria de trabajo del agente y el costo computacional de sus tareas.
+tiempo de respuesta: 315198 ms
 
 TABLA COMPARATIVA DE MODELOS
 +------------------------------+-----------------------+------------------+
 | detalle                      | gemini-3.5-flash-lite | gemini-3.8-flash |
 +------------------------------+-----------------------+------------------+
 | tokens de entrada (prompt)   | 32                    | 32               |
-| tokens de salida (respuesta) | 54                    | 95               |
-| tokens de razonamiento       | 0                     | 466              |
-| total                        | 86                    | 593              |
-| costo una consulta           | US$0.000145           | US$0.002128      |
-| costo diario                 | US$0.144600           | US$2.127750      |
-| costo mensual (30 días)      | US$4.338000           | US$63.832500     |
+| tokens de salida (respuesta) | 87                    | 91               |
+| tokens de razonamiento       | 0                     | 374              |
+| total                        | 119                   | 497              |
+| costo una consulta           | US$0.000227           | US$0.001768      |
+| costo diario                 | US$0.227100           | US$1.767750      |
+| costo mensual (30 días)      | US$6.813000           | US$53.032500     |
++------------------------------+-----------------------+------------------+
+
+TABLA COMPARATIVA: SYSTEM PROMPT DE 2000 TOKENS
++------------------------------+-----------------------+------------------+
+| detalle                      | gemini-3.5-flash-lite | gemini-3.8-flash |
++------------------------------+-----------------------+------------------+
+| tokens de entrada (prompt)   | 2000                  | 2000             |
+| tokens de salida (respuesta) | 87                    | 91               |
+| tokens de razonamiento       | 0                     | 374              |
+| total                        | 2087                  | 2465             |
+| costo una consulta           | US$0.000817           | US$0.003244      |
+| costo diario                 | US$0.817500           | US$3.243750      |
+| costo mensual (30 días)      | US$24.525000          | US$97.312500     |
 +------------------------------+-----------------------+------------------+
 ```

@@ -16,17 +16,57 @@ os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
 #    (los modelos Gemini 3.6+ y 4 la ignoran, por eso preferimos Flash-Lite 3.5 o 2.5)
 client = genai.Client()
 
+def _corte_de_conexion(error):
+    """No se pudo hablar con la API: conexión rechazada, cortada o agotada."""
+    nombre = type(error).__name__
+    mensaje = str(error)
+    return (
+        nombre in {
+            "ReadError", "ConnectError", "RemoteProtocolError",
+            "ConnectTimeout", "ReadTimeout", "WriteError", "NetworkError", "PoolTimeout",
+        }
+        or "Connection reset by peer" in mensaje
+        or "Connection refused" in mensaje
+        or "Errno 54" in mensaje
+        or "Errno 61" in mensaje
+        or "Server disconnected" in mensaje
+    )
+
+
+def _listar_modelos(reintentos=2):
+    """Modelos del proyecto que aceptan generateContent."""
+    for intento in range(reintentos + 1):
+        try:
+            disponibles = []
+            for m in client.models.list():
+                nombre = m.name or ""
+                acciones = getattr(m, "supported_actions", None) or []
+                if nombre and (not acciones or "generateContent" in acciones):
+                    disponibles.append(nombre.replace("models/", ""))
+            return disponibles
+        except Exception as e:
+            if _corte_de_conexion(e) and intento < reintentos:
+                print("  (se cortó la conexión al listar modelos, esperando 20 s...)")
+                time.sleep(20)
+                continue
+            if _corte_de_conexion(e):
+                raise SystemExit(
+                    "Se cortó la conexión al consultar los modelos disponibles. "
+                    "Vuelve a ejecutar el script."
+                ) from None
+            raise SystemExit(
+                f"No se pudo consultar los modelos disponibles: {type(e).__name__}: {e}"
+            ) from None
+    raise SystemExit("No se pudo consultar los modelos disponibles.")
+
+
 def elegir_modelo(modelo_forzado=""):
     """Elige un modelo que acepte generateContent.
 
     Si `modelo_forzado` trae un nombre, se usa ese. Si viene vacío, se toma
     el primero de PREFERIDOS (en .env) que esté disponible en el proyecto.
     """
-    disponibles = []
-    for m in client.models.list():
-        acciones = getattr(m, "supported_actions", None) or []
-        if not acciones or "generateContent" in acciones:
-            disponibles.append(m.name.replace("models/", ""))
+    disponibles = _listar_modelos()
     if not disponibles:
         raise SystemExit("No hay modelos con generateContent en tu proyecto.")
 
@@ -67,7 +107,7 @@ def costo_usd(input_tokens, output_tokens, model=None):
     return ((input_tokens or 0) * p["input"] + (output_tokens or 0) * p["output"]) / 1_000_000
 
 def generar(contents, reintentos=2, model=None, **config):
-    """Llama al modelo; si el nivel gratuito devuelve 429 (límite de uso) o 503 (mucha demanda), espera y reintenta.
+    """Llama al modelo; si el nivel gratuito devuelve 429, 503 o se corta la conexión, espera y reintenta.
 
     `model` fuerza un modelo para esta llamada. Si viene vacío, se usa MODEL.
     """
@@ -78,16 +118,39 @@ def generar(contents, reintentos=2, model=None, **config):
                                                   config=types.GenerateContentConfig(**config))
         except Exception as e:
             msg = str(e)
-            if ("429" in msg or "RESOURCE_EXHAUSTED" in msg) and intento < reintentos:
-                print("  (límite de uso alcanzado, esperando 20 s...)"); time.sleep(20)
-            elif ("503" in msg or "UNAVAILABLE" in msg) and intento < reintentos:
-                print("  (el modelo está con mucha demanda, esperando 20 s...)"); time.sleep(20)
-            elif "404" in msg or "NOT_FOUND" in msg:
-                raise SystemExit(f"El modelo {modelo} no está disponible en tu proyecto. Cambia MODEL por otro de la lista de la celda anterior.")
-            elif "403" in msg or "401" in msg or "API_KEY_INVALID" in msg:
-                raise SystemExit("La API key fue rechazada. Verifica que la copiaste completa desde https://aistudio.google.com/apikey y que no está restringida a otra API.")
-            else:
-                raise
+            if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+                if intento < reintentos:
+                    print("  (límite de uso alcanzado, esperando 20 s...)")
+                    time.sleep(20)
+                    continue
+                raise SystemExit(
+                    "Se alcanzó el límite de uso del nivel gratuito (429). "
+                    "Espera un momento y vuelve a ejecutar el script."
+                ) from None
+            if "503" in msg or "UNAVAILABLE" in msg:
+                if intento < reintentos:
+                    print("  (el modelo está con mucha demanda, esperando 20 s...)")
+                    time.sleep(20)
+                    continue
+                raise SystemExit(
+                    f"El modelo {modelo} sigue con mucha demanda (503). "
+                    "Espera un momento y vuelve a ejecutar el script."
+                ) from None
+            if _corte_de_conexion(e):
+                if intento < reintentos:
+                    print(f"  (se cortó la conexión con {modelo}, esperando 20 s...)")
+                    time.sleep(20)
+                    continue
+                raise SystemExit(
+                    f"Se cortó la conexión al consultar {modelo}. "
+                    "Vuelve a ejecutar el script."
+                ) from None
+            if "404" in msg or "NOT_FOUND" in msg:
+                raise SystemExit(f"El modelo {modelo} no está disponible en tu proyecto. Cambia MODEL por otro de la lista de la celda anterior.") from None
+            if "403" in msg or "401" in msg or "API_KEY_INVALID" in msg:
+                raise SystemExit("La API key fue rechazada. Verifica que la copiaste completa desde https://aistudio.google.com/apikey y que no está restringida a otra API.") from None
+            raise SystemExit(f"No se pudo consultar {modelo}: {type(e).__name__}: {msg}") from None
+    raise SystemExit(f"No se pudo consultar {modelo}.")
 
 def contar_tokens(texto):
     return client.models.count_tokens(model=MODEL, contents=texto).total_tokens
