@@ -1,0 +1,76 @@
+[
+  {
+    "id": "P-1001",
+    "cliente": "Ferretería Lagos",
+    "ciudad": "Valparaíso",
+    "estado": "en_transito",
+    "items": [
+      {
+        "sku": "TAL-200",
+        "cant": 10
+      }
+    ],
+    "fecha_despacho": "2026-10-15",
+    "eta_dias": 2
+  },
+  {
+    "id": "P-1002",
+    "cliente": "Minimarket Sol",
+    "ciudad": "Santiago",
+    "estado": "entregado",
+    "items": [
+      {
+        "sku": "CAJ-050",
+        "cant": 200
+      }
+    ],
+    "fecha_despacho": "2026-10-10",
+    "eta_dias": 0
+  },
+  {
+    "id": "P-1003",
+    "cliente": "Clínica Norte",
+    "ciudad": "Antofagasta",
+    "estado": "preparacion",
+    "items": [
+      {
+        "sku": "GUA-010",
+        "cant": 50
+      },
+      {
+        "sku": "TAL-200",
+        "cant": 5
+      }
+    ],
+    "fecha_despacho": null,
+    "eta_dias": 4
+  },
+  {
+    "id": "P-1004",
+    "cliente": "Ferretería Lagos",
+    "ciudad": "Valparaíso",
+    "estado": "retrasado",
+    "items": [
+      {
+        "sku": "CAJ-050",
+        "cant": 40
+      }
+    ],
+    "fecha_despacho": "2026-10-12",
+    "eta_dias": 3
+  },
+  {
+    "id": "P-1005",
+    "cliente": "Agro Sur",
+    "ciudad": "Temuco",
+    "estado": "en_transito",
+    "items": [
+      {
+        "sku": "PAL-001",
+        "cant": 12
+      }
+    ],
+    "fecha_despacho": "2026-10-16",
+    "eta_dias": 3
+  }
+]

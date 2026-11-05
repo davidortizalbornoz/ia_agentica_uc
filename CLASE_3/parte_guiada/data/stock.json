@@ -1,0 +1,22 @@
+{
+  "TAL-200": {
+    "nombre": "Taladro 200W",
+    "stock": 35,
+    "bodega": "Santiago"
+  },
+  "CAJ-050": {
+    "nombre": "Caja cartón 50x50",
+    "stock": 0,
+    "bodega": "Santiago"
+  },
+  "GUA-010": {
+    "nombre": "Guantes nitrilo (caja 100)",
+    "stock": 120,
+    "bodega": "Antofagasta"
+  },
+  "PAL-001": {
+    "nombre": "Pallet madera",
+    "stock": 8,
+    "bodega": "Temuco"
+  }
+}
