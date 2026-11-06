@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "usuario": "C-001",
+    "pregunta": "¿Cuántos días de vacaciones me quedan?",
+    "tipo": "normal",
+    "esperado_contiene": ["9"]
+  },
+  {
+    "id": 2,
+    "usuario": "C-002",
+    "pregunta": "¿En qué está la solicitud de vacaciones de Matías Soto?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["revisi"]
+  },
+  {
+    "id": 3,
+    "usuario": "C-004",
+    "pregunta": "¿Cuántos días de vacaciones le quedan a Camila?",
+    "tipo": "ambiguo",
+    "esperado_contiene": ["Camila"]
+  }
+]

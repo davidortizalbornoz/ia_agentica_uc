@@ -1,0 +1,44 @@
+[
+  {
+    "id": "POL-01",
+    "titulo": "Vacaciones",
+    "tags": ["vacaciones", "feriado legal", "días hábiles", "progresivos", "anticipo"],
+    "texto": "Todo colaborador con al menos un año de antigüedad tiene derecho a 15 días hábiles de vacaciones por año. Quienes superan los 10 años de servicio suman 1 día adicional por cada 3 años (vacaciones progresivas). Las vacaciones se solicitan a través del portal de Personas con al menos 10 días hábiles de anticipación y las aprueba la jefatura directa. Pueden fraccionarse en máximo dos periodos, uno de los cuales debe ser de al menos 10 días hábiles. Los colaboradores con menos de un año de antigüedad no tienen saldo, pero pueden solicitar un anticipo de vacaciones con aprobación del área de Personas."
+  },
+  {
+    "id": "POL-02",
+    "titulo": "Permisos administrativos",
+    "tags": ["permiso", "administrativo", "día libre", "trámite"],
+    "texto": "Cada colaborador dispone de 3 días de permiso administrativo por año calendario, no acumulables para el año siguiente. Se solicitan con al menos 48 horas de anticipación y los aprueba la jefatura directa. No se descuentan del saldo de vacaciones. Pueden tomarse en medios días."
+  },
+  {
+    "id": "POL-03",
+    "titulo": "Licencias médicas",
+    "tags": ["licencia", "médica", "enfermedad", "reposo", "salud"],
+    "texto": "La licencia médica debe informarse a la jefatura el mismo día y presentarse a Personas dentro de los 2 días hábiles siguientes a su emisión. Personas se encarga de la tramitación ante la entidad de salud. Durante el reposo el colaborador no debe realizar trabajo ni ser contactado por temas laborales. Los días de licencia no se descuentan del saldo de vacaciones."
+  },
+  {
+    "id": "POL-04",
+    "titulo": "Teletrabajo y modalidad híbrida",
+    "tags": ["teletrabajo", "remoto", "híbrido", "home office", "casa"],
+    "texto": "Los cargos administrativos trabajan en modalidad híbrida, con hasta 3 días remotos por semana acordados con la jefatura. Los cargos de tienda (vendedores, cajeros, jefes de tienda) son presenciales. Se pueden solicitar periodos 100 % remotos de hasta 2 semanas al año, con aprobación de la jefatura y aviso a Personas con 5 días hábiles de anticipación. La empresa provee notebook y un aporte mensual de conectividad."
+  },
+  {
+    "id": "POL-05",
+    "titulo": "Jornada y asistencia",
+    "tags": ["horario", "jornada", "asistencia", "marcaje", "horas extra", "flexibilidad"],
+    "texto": "La jornada ordinaria es de 42 horas semanales distribuidas de lunes a viernes para cargos administrativos, con flexibilidad de entrada entre 8:00 y 10:00. Los cargos de tienda se rigen por turnos publicados con 7 días de anticipación. Toda la jornada se registra en el sistema de marcaje. Las horas extraordinarias requieren autorización previa y se pagan con un recargo del 50 %."
+  },
+  {
+    "id": "POL-06",
+    "titulo": "Beneficios",
+    "tags": ["beneficios", "bono", "aguinaldo", "seguro", "escolar"],
+    "texto": "Los beneficios vigentes son: bono escolar en marzo por cada hijo en edad escolar, aguinaldo en septiembre y diciembre, seguro complementario de salud con copago, y descuento del 20 % en tiendas Lumen. La información personal de beneficios y los pagos se consultan directamente con el área de Personas (personas@lumenretail.example); el asistente solo entrega la descripción general."
+  },
+  {
+    "id": "POL-07",
+    "titulo": "Privacidad de la información de personas",
+    "tags": ["privacidad", "confidencialidad", "datos personales", "acceso", "equipo"],
+    "texto": "La información individual (saldos, solicitudes, licencias) solo puede entregarse al propio colaborador o a su jefatura directa respecto de su equipo. Cualquier otra consulta sobre terceros debe derivarse al área de Personas. Las licencias médicas son especialmente sensibles: a la jefatura solo se le informa el periodo de ausencia, nunca el diagnóstico."
+  }
+]

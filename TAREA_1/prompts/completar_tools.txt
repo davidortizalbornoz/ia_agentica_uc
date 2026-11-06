@@ -1,0 +1,16 @@
+Requiero que completes en @tools.py una serie de contenidos descriptivos para especificar la funcionalidad o la capacidad de la función (def) como también complementar en su declarativa (types.FunctionDeclaration).
+
+Completa lo mas extensible posible el campo "description" en types.FunctionDeclaration, como también complementa el docstring de la función (def).
+
+En las siguientes funciones, hay que implementar su lógica programática:
+
+def saldo_vacaciones(colaborador_id: str) -> dict:
+def estado_solicitudes(colaborador_id: str, tipo: str = "") -> dict:
+def buscar_politica(tema: str) -> dict:
+def dias_habiles_entre(fecha_inicio: str, fecha_fin: str) -> dict:
+
+Incorpora la función en la constante REGISTRO como también la declarativa de la función en constante DECLARACIONES.
+
+a medida que vayas complementando la clase con lo solicitado, irás eliminando comentarios, TODO o cualquier comentario que borre instrucciones.
+
+En esta carpeta se encuentrasn los json que harán de servicios mocks @datos para el agente que estamos construyendo.  Usa esos ejemplos para que determines las salidas o las estructuras de datos resultantes. 

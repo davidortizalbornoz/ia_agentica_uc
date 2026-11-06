@@ -1,0 +1,11 @@
+# NUNCA subas tu key
+.env
+
+# generados al correr
+logs/
+resultados/
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+venv/

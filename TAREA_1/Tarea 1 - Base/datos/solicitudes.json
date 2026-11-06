@@ -1,0 +1,11 @@
+[
+  {"id": "S-2026-037", "colaborador_id": "C-002", "tipo": "licencia_medica", "fecha_inicio": "2026-10-05", "fecha_fin": "2026-10-09", "dias": 5, "estado": "aprobada", "aprobador_id": null, "comentario": "Tramitada por Personas; licencia electrónica recibida."},
+  {"id": "S-2026-041", "colaborador_id": "C-001", "tipo": "vacaciones", "fecha_inicio": "2026-11-23", "fecha_fin": "2026-11-27", "dias": 5, "estado": "aprobada", "aprobador_id": "C-005", "comentario": ""},
+  {"id": "S-2026-042", "colaborador_id": "C-001", "tipo": "permiso_administrativo", "fecha_inicio": "2026-12-04", "fecha_fin": "2026-12-04", "dias": 1, "estado": "pendiente", "aprobador_id": "C-005", "comentario": ""},
+  {"id": "S-2026-044", "colaborador_id": "C-004", "tipo": "vacaciones", "fecha_inicio": "2026-12-21", "fecha_fin": "2027-01-01", "dias": 8, "estado": "en_revision", "aprobador_id": "C-002", "comentario": "Periodo de alta demanda en tienda; requiere visto bueno de la Subgerencia de Operaciones."},
+  {"id": "S-2026-045", "colaborador_id": "C-005", "tipo": "vacaciones", "fecha_inicio": "2026-11-09", "fecha_fin": "2026-11-13", "dias": 5, "estado": "rechazada", "aprobador_id": "C-008", "comentario": "Coincide con el cierre comercial del mes; proponer nuevas fechas."},
+  {"id": "S-2026-046", "colaborador_id": "C-007", "tipo": "teletrabajo", "fecha_inicio": "2026-11-16", "fecha_fin": "2026-11-20", "dias": 5, "estado": "pendiente", "aprobador_id": "C-008", "comentario": "Semana 100 % remota por viaje familiar."},
+  {"id": "S-2026-047", "colaborador_id": "C-009", "tipo": "vacaciones", "fecha_inicio": "2026-11-30", "fecha_fin": "2026-12-04", "dias": 5, "estado": "aprobada", "aprobador_id": "C-002", "comentario": ""},
+  {"id": "S-2026-048", "colaborador_id": "C-003", "tipo": "permiso_administrativo", "fecha_inicio": "2026-11-06", "fecha_fin": "2026-11-06", "dias": 1, "estado": "aprobada", "aprobador_id": "C-007", "comentario": "Trámite personal."},
+  {"id": "S-2026-049", "colaborador_id": "C-006", "tipo": "vacaciones", "fecha_inicio": "2027-01-11", "fecha_fin": "2027-01-22", "dias": 10, "estado": "pendiente", "aprobador_id": "C-008", "comentario": ""}
+]
