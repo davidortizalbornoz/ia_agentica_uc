@@ -1,0 +1,42 @@
+[
+  {
+    "id_punto": "P1",
+    "id_ciudad": "TEM",
+    "mm_acumulados_promedio": 7
+  },
+  {
+    "id_punto": "P2",
+    "id_ciudad": "VAL",
+    "mm_acumulados_promedio": 26
+  },
+  {
+    "id_punto": "P3",
+    "id_ciudad": "PVA",
+    "mm_acumulados_promedio": 12
+  },
+  {
+    "id_punto": "P4",
+    "id_ciudad": "CAL",
+    "mm_acumulados_promedio": 1.7
+  },
+  {
+    "id_punto": "P5",
+    "id_ciudad": "SAN",
+    "mm_acumulados_promedio": 0.2
+  },
+  {
+    "id_punto": "P6",
+    "id_ciudad": "VIL",
+    "mm_acumulados_promedio": 0.2
+  },
+  {
+    "id_punto": "P7",
+    "id_ciudad": "VIL",
+    "mm_acumulados_promedio": 1.4
+  },
+  {
+    "id_punto": "P8",
+    "id_ciudad": "ANG",
+    "mm_acumulados_promedio": 4.2
+  }
+]

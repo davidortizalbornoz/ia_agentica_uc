@@ -23,20 +23,17 @@ Pontificia Universidad Católica de Chile
 
 ## Inventario
 
-En la raíz están `.env.sample`, `.python-version` (entorno pyenv `ia_agentica_uc`, Python 3.13.5) y este archivo. Los scripts que llaman al modelo leen `GEMINI_API_KEY` y `PREFERIDOS` desde el `.env` de la raíz, con `leer_clave` de `CLASE_1/parte_guiada/entorno_local.py`. La llamada, el modelo elegido y el costo están en `CLASE_1/parte_guiada/common.py`.
+En la raíz están `.env.sample`, `.python-version` y este archivo.
+
+`.python-version` apunta al entorno pyenv `ia_agentica_uc`, con Python 3.13.5.
+
+Los scripts que llaman al modelo leen `GEMINI_API_KEY` y `PREFERIDOS` desde el `.env` de la raíz.
+
+La forma de ejecutar cada ejercicio está al inicio del markdown del mismo nombre, dentro de la carpeta `ejercicios` de cada clase.
 
 ### CLASE_1
 
 Primera llamada a un modelo: tokens, costo y `temperature`.
-
-| Recurso | Qué contiene |
-| --- | --- |
-| `CLASE_1/jupyter/1_practico_primera_llamada_a_un_llm.ipynb` | Notebook del práctico 1. |
-| `CLASE_1/parte_guiada/1_practico_primera_llamada_a_un_llm.py` | La misma práctica en local: respuesta a «¿Qué es un token?», tokens, costo y `temperature` 0.0 y 1.0. |
-| `CLASE_1/parte_guiada/common.py` | `elegir_modelo`, `generar`, `costo_usd` y `contar_tokens`. |
-| `CLASE_1/parte_guiada/entorno_local.py` | Lectura del `.env`. |
-
-#### Ejercicios
 
 | Recurso | Qué hace |
 | --- | --- |
@@ -48,15 +45,6 @@ Primera llamada a un modelo: tokens, costo y `temperature`.
 
 System prompts medidos sobre correos ya etiquetados, y salidas validadas con Pydantic.
 
-| Recurso | Qué contiene |
-| --- | --- |
-| `CLASE_2/jupyter/2_practico_system_prompts_que_se_prueban.ipynb` | Notebook del práctico 2: tres system prompts y una salida estructurada. |
-| `CLASE_2/parte_guiada/1_practico_elproblema_ylosdatos.py` | 31 correos de Andina Cargo, con `clasificacion` (`facturacion`, `tecnico`, `reclamo`, `otro`) y `dificultad` (`facil`, `dificil`). |
-| `CLASE_2/parte_guiada/2_practico_3versionesde_systemprompt.py` | Clasifica esos 31 correos con `v1_vago`, `v2_estructurado` y `v3_con_ejemplos`, 3 ciclos por versión. |
-| `CLASE_2/parte_guiada/3_practico_salidas_estructuradas_pydantic.py` | Esquema `Clasificacion`: `categoria`, `urgencia` y `resumen`. |
-
-#### Ejercicios
-
 | Recurso | Qué hace |
 | --- | --- |
 | `CLASE_2/ejercicios/1_ejercicio_subir_exactitud_casos_dificiles.py` | Agrega `v4_mejorado`, con reglas de desempate y ejemplos de casos trampa, y vuelve a medir los 31 correos. |
@@ -64,6 +52,34 @@ System prompts medidos sobre correos ya etiquetados, y salidas validadas con Pyd
 | `CLASE_2/ejercicios/3_ejercicio_extraccion_estructurada_pedidos.py` | Siete frases a un objeto `Pedido` con `sku`, `cantidad` y `ciudad`. |
 | `CLASE_2/ejercicios/4_ejercicio_casos_tickets_jira.py` | 18 tickets con `contexto`, `categoria` (`desarrollo`, `despliegue`, `monitoreo`) y `prioridad` (`alta`, `media`, `baja`). |
 | `CLASE_2/ejercicios/5_ejercicio_medicion_prompts.py` | Asigna la prioridad de esos 18 tickets con `v2_estructurado` y `v3_con_ejemplos`, 3 ciclos por versión. |
+
+### CLASE_3
+
+Primer agente con tools: funciones Python, el contrato que ve el modelo y el loop agéntico, manual y automático. El caso es un asistente interno de Andina Cargo.
+
+| Recurso | Qué hace |
+| --- | --- |
+| `CLASE_3/ejercicios/1_ejercicio_funciones.py` | `fecha_estimada_entrega`: lee `pedidos.json` y, si el pedido ya salió, suma `eta_dias` a `fecha_despacho`. |
+| `CLASE_3/ejercicios/1_ejercicio_contrato.py` | Contrato de `fecha_estimada_entrega`. Esta ejecución no llama al modelo. |
+| `CLASE_3/ejercicios/1_ejercicio_loop_agentico_manual.py` | Loop manual con `buscar_pedido`, `consultar_stock` y `fecha_estimada_entrega`. Tope de 5 iteraciones. |
+| `CLASE_3/ejercicios/2_ejercicio_loop_agentico_manual_limite_1.py` | El mismo loop manual con tope de 1 interacción. |
+| `CLASE_3/ejercicios/2_ejercicio_loop_agentico_auto_limite_1.py` | Loop automático con tope de 1 llamada remota: el modelo pide una tool y el SDK se detiene antes de ejecutarla. |
+| `CLASE_3/ejercicios/3_ejercicio_funcion_rota.py` | `consultar_stock_roto` lanza `RuntimeError("Inventario no disponible")`. |
+| `CLASE_3/ejercicios/3_ejercicio_contrato_roto.py` | Contrato de `consultar_stock_roto`. Esta ejecución no llama al modelo. |
+| `CLASE_3/ejercicios/3_ejercicio_loop_agentico_manual_force_error.py` | Loop manual: la excepción de la tool se propaga y corta el loop. |
+| `CLASE_3/ejercicios/3_ejercicio_loop_agentico_manual_robusto_handler.py` | Loop manual: captura la excepción y la devuelve al modelo como `{"error": "..."}`. |
+| `CLASE_3/ejercicios/3_ejercicio_loop_agentico_auto_handler.py` | Loop automático con `consultar_stock_roto`: la excepción queda dentro del SDK y el modelo la explica. |
+
+## SDK
+
+`google-genai` es el SDK de Python de Google para hablar con la API de Gemini. Es el puente entre tu script y el modelo. El modelo es el motor; el SDK es el cliente que arma la llamada, la autentica y te devuelve la respuesta.
+
+Nombre: `google-genai`.
+
+Release: 2.31.0.
+
+Versión: 2.31.0.
+
 
 ## API key
 

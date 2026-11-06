@@ -1,0 +1,38 @@
+[
+  {
+    "id_rio": "R1",
+    "nombre_rio": "Rio Tolten",
+    "id_ciudad": "TEM"
+  },
+  {
+    "id_rio": "R2",
+    "nombre_rio": "Rio Enco",
+    "id_ciudad": "VAL"
+  },
+  {
+    "id_rio": "R3",
+    "nombre_rio": "Rio Palena",
+    "id_ciudad": "PVA"
+  },
+  {
+    "id_rio": "R4",
+    "nombre_rio": "Rio Loa",
+    "id_ciudad": "CAL"
+  },
+  {
+    "id_rio": "R5",
+    "nombre_rio": "Río Cautín",
+    "id_ciudad": "TEM"
+  },
+  {
+    "id_rio": "R6",
+    "nombre_rio": "Río Cholchol",
+    "id_ciudad": "TEM"
+  },
+  {
+    "id_rio": "R7",
+    "nombre_rio": "Río Trancura",
+    "id_ciudad": "VIL"
+  }
+    
+]

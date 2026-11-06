@@ -1,0 +1,44 @@
+[
+  {
+    "id_ciudad": "TEM",
+    "nombre_region": "Araucania",
+    "nombre_ciudad": "Temuco",
+    "habitantes": 120000,
+    "superficie_km2": 100
+  },
+  {
+    "id_ciudad": "VAL",
+    "nombre_region": "Los Rios",
+    "nombre_ciudad": "Valdivia",
+    "habitantes": 200000,
+    "superficie_km2": 260
+  },
+  {
+    "id_ciudad": "PVA",
+    "nombre_region": "Los Lagos",
+    "nombre_ciudad": "Puerto Varas",
+    "habitantes": 175000,
+    "superficie_km2": 320
+  },
+  {
+    "id_ciudad": "CAL",
+    "nombre_region": "Antofagasta",
+    "nombre_ciudad": "Calama",
+    "habitantes": 75000,
+    "superficie_km2": 160
+  },
+  {
+    "id_ciudad": "VIL",
+    "nombre_region": "Araucania",
+    "nombre_ciudad": "Villarica",
+    "habitantes": 180000,
+    "superficie_km2": 36
+  },
+  {
+    "id_ciudad": "ANG",
+    "nombre_region": "Araucania",
+    "nombre_ciudad": "Angol",
+    "habitantes": 80000,
+    "superficie_km2": 67
+  }
+]
