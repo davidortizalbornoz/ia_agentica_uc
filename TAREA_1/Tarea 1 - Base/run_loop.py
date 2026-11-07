@@ -14,15 +14,21 @@ sys.path.insert(0, str(_DIR))
 import agent
 
 pregunta = "¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?"
+usuario = "C-006"
 r = agent.ejecutar(
     pregunta,
-    usuario="C-006",
+    usuario=usuario,
     verbose=True,
 )
 resumen = agent.resumir(pregunta, r)
+print(f"Pregunta: {pregunta}")
+print(f"Usuario: {usuario}")
 
 
+print()
+print("________________________________________________________")
 print(r["respuesta"])
+print("________________________________________________________")
 print()
 print(resumen.model_dump_json(indent=2, ensure_ascii=False))
 print()
