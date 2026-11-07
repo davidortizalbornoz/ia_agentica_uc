@@ -1,0 +1,11 @@
+2026-11-07 17:27:13,492 INFO pregunta | usuario=C-001 | ¿Cuántos días de vacaciones me quedan?
+2026-11-07 17:27:15,841 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 17:27:16,720 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3191 out=25
+2026-11-07 17:27:16,720 INFO paso=1 | tool=saldo_vacaciones | args={'colaborador_id': 'C-001'} | resultado={'colaborador_id': 'C-001', 'nombre': 'Camila Rojas', 'dias_disponibles': 9, 'dias_tomados_2026': 6, 'antiguedad_anios': 5.6}
+2026-11-07 17:27:18,161 ERROR error no manejado: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': "Role 'tool' is not supported. Please use a valid role: SYSTEM, SYSTEM_1, USER, ASSISTANT, DEVELOPER, CONTEXT, USER_CONTEXT, MODEL, USER.", 'status': 'INVALID_ARGUMENT'}}
+2026-11-07 17:27:52,768 INFO pregunta | usuario=C-001 | ¿Cuántos días de vacaciones me quedan?
+2026-11-07 17:27:54,268 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 17:27:55,555 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3191 out=25
+2026-11-07 17:27:55,555 INFO paso=1 | tool=saldo_vacaciones | args={'colaborador_id': 'C-001'} | resultado={'colaborador_id': 'C-001', 'nombre': 'Camila Rojas', 'dias_disponibles': 9, 'dias_tomados_2026': 6, 'antiguedad_anios': 5.6}
+2026-11-07 17:27:58,259 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3283 out=75
+2026-11-07 17:27:59,317 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=961 out=87

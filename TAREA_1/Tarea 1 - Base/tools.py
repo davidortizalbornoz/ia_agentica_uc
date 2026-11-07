@@ -23,7 +23,6 @@ COLABORADORES = json.loads((DATOS / "colaboradores.json").read_text(encoding="ut
 SOLICITUDES = json.loads((DATOS / "solicitudes.json").read_text(encoding="utf-8"))
 POLITICAS = json.loads((DATOS / "politicas.json").read_text(encoding="utf-8"))
 FERIADOS = {date.fromisoformat(f) for f in json.loads((DATOS / "feriados.json").read_text(encoding="utf-8"))["feriados"]}
-HOY = date(2026, 11, 2)  # fecha fija del caso simulado, para que los resultados sean reproducibles
 
 TIPOS_SOLICITUD = (
     "vacaciones",
@@ -105,7 +104,7 @@ def saldo_vacaciones(colaborador_id: str) -> dict:
     """Devuelve el saldo de vacaciones y la antigüedad de un colaborador.
 
     Lee `dias_vacaciones_disponibles` y `dias_vacaciones_tomados_2026` del
-    registro en colaboradores.json. La antigüedad se mide al 2026-11-02 (HOY)
+    registro en colaboradores.json. La antigüedad se mide a la fecha actual
     como años con un decimal: días de servicio / 365.25, redondeada a un
     decimal. Si el cociente exacto es menor que 1, el valor informado también
     queda bajo 1 (no se redondea a 1.0), la persona no tiene feriado legal y
@@ -124,7 +123,7 @@ def saldo_vacaciones(colaborador_id: str) -> dict:
         return _error_id_colaborador(colaborador_id)
 
     ingreso = date.fromisoformat(colaborador["fecha_ingreso"])
-    anios_exactos = (HOY - ingreso).days / 365.25
+    anios_exactos = (date.today() - ingreso).days / 365.25
     antiguedad_anios = round(anios_exactos, 1)
     if anios_exactos < 1 <= antiguedad_anios:
         antiguedad_anios = math.floor(anios_exactos * 10) / 10
@@ -157,7 +156,7 @@ DECL_SALDO_VACACIONES = types.FunctionDeclaration(
         "ni para contar cuántos días hábiles hay entre dos fechas (dias_habiles_entre). "
         "Devuelve colaborador_id, nombre, dias_disponibles (saldo actual que se puede pedir), "
         "dias_tomados_2026 (días de vacaciones ya usados en el año 2026) y antiguedad_anios "
-        "(años de servicio con un decimal, calculados al 2026-11-02 como días corridos / 365.25; "
+        "(años de servicio con un decimal, calculados a la fecha actual como días corridos / 365.25; "
         "si aún no cumple un año, antiguedad_anios es menor que 1). "
         "Si la antigüedad es menor a un año, el dict incluye además nota: esa persona no tiene saldo de feriado legal "
         "y solo puede pedir un anticipo con aprobación de Personas, según POL-01. "
@@ -406,10 +405,10 @@ DECL_DIAS_HABILES = types.FunctionDeclaration(
     name="dias_habiles_entre",
     description=(
         "Cuenta los días hábiles entre dos fechas, ambas inclusive, usando el calendario del caso: "
-        "lunes a viernes, restando los feriados de Chile cargados en feriados.json (2026 y el 2027-01-01). "
+        "lunes a viernes, restando los feriados de Chile cargados en feriados.json. "
         "Úsala cuando pregunten cuántos días hábiles hay en un periodo de vacaciones o permiso, "
-        "si un rango alcanza el mínimo de 10 días hábiles, cuántos días hábiles de anticipación hay entre hoy "
-        "(la fecha de referencia del caso es 2026-11-02) y el inicio de una solicitud, o qué feriados de día de semana "
+        "si un rango alcanza el mínimo de 10 días hábiles, cuántos días hábiles de anticipación hay entre la fecha de hoy "
+        "y el inicio de una solicitud, o qué feriados de día de semana "
         "caen dentro de esas fechas. "
         "No calcula saldos ni decide si una solicitud está aprobada: para eso están saldo_vacaciones y estado_solicitudes. "
         "Tampoco reemplaza a buscar_politica cuando la pregunta es cuál es la regla de anticipación. "

@@ -1,4 +1,7 @@
 """Tests propios de las cuatro tools implementadas. Corren sin red."""
+import math
+from datetime import date
+
 import tools
 
 
@@ -10,10 +13,18 @@ def test_saldo_vacaciones_devuelve_nombre_y_sin_nota_si_tiene_antiguedad():
     assert "nota" not in r
 
 
-def test_saldo_vacaciones_menos_de_un_anio_informa_anticipo():
+def test_saldo_vacaciones_antiguedad_usa_la_fecha_actual():
     r = tools.saldo_vacaciones("C-003")
-    assert r["antiguedad_anios"] < 1
-    assert "anticipo" in r["nota"] and "POL-01" in r["nota"]
+    ingreso = date.fromisoformat("2025-11-02")
+    exactos = (date.today() - ingreso).days / 365.25
+    esperado = round(exactos, 1)
+    if exactos < 1 <= esperado:
+        esperado = math.floor(exactos * 10) / 10
+    assert r["antiguedad_anios"] == esperado
+    if exactos < 1:
+        assert "anticipo" in r["nota"] and "POL-01" in r["nota"]
+    else:
+        assert "nota" not in r
 
 
 def test_saldo_vacaciones_id_vacio():

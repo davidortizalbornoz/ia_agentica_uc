@@ -68,7 +68,9 @@ def fake_generar(contents, **config):
     consultante = consultante.group(1) if consultante else None
 
     # --- turno del usuario: decidir la primera tool ---
-    if ultimo.role != "tool":
+    # El resultado de una tool vuelve con role "user" (la API no acepta "tool").
+    es_resultado = any(getattr(p, "function_response", None) is not None for p in (ultimo.parts or []))
+    if not es_resultado:
         nombre = next((n for n in NOMBRES if n in preg), None)
         if nombre and "buscar_colaborador" in declaradas:
             return _respuesta(llamadas=[types.FunctionCall(name="buscar_colaborador", args={"nombre_o_id": nombre})])

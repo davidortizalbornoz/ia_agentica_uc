@@ -1,0 +1,102 @@
+2026-11-07 15:42:03,808 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 15:42:03,812 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 15:42:03,813 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 15:42:03,814 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 15:42:03,814 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 15:42:03,814 WARNING límite de iteraciones alcanzado
+2026-11-07 15:42:03,814 INFO pregunta | usuario=None | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 15:42:03,814 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'error': 'base de datos de Personas no disponible'}
+2026-11-07 16:53:01,455 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 16:53:01,456 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 16:53:01,457 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 16:53:01,458 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 16:53:01,458 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 16:53:01,458 WARNING límite de iteraciones alcanzado
+2026-11-07 16:53:01,458 INFO pregunta | usuario=None | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 16:53:01,458 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'error': 'base de datos de Personas no disponible'}
+2026-11-07 17:20:58,980 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:20:58,981 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:20:58,982 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 17:20:58,982 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:20:58,982 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:20:58,982 WARNING límite de iteraciones alcanzado
+2026-11-07 17:20:58,983 INFO pregunta | usuario=None | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:20:58,983 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'error': 'base de datos de Personas no disponible'}
+2026-11-07 17:27:52,688 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:27:52,689 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:27:52,690 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 17:27:52,691 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:27:52,691 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:27:52,691 WARNING límite de iteraciones alcanzado
+2026-11-07 17:27:52,691 INFO pregunta | usuario=None | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:27:52,691 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'error': 'base de datos de Personas no disponible'}
+2026-11-07 17:53:53,557 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:53:55,268 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 17:53:56,914 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3197 out=24
+2026-11-07 17:53:56,916 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:53:58,364 ERROR error no manejado: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': "Role 'tool' is not supported. Please use a valid role: SYSTEM, SYSTEM_1, USER, ASSISTANT, DEVELOPER, CONTEXT, USER_CONTEXT, MODEL, USER.", 'status': 'INVALID_ARGUMENT'}}
+2026-11-07 17:55:54,695 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:55:56,345 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 17:55:57,948 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3197 out=24
+2026-11-07 17:55:57,949 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:55:59,802 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3361 out=25
+2026-11-07 17:55:59,803 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 17:56:01,968 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3455 out=101
+2026-11-07 17:56:30,211 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 17:56:32,548 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 17:56:33,377 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3197 out=24
+2026-11-07 17:56:33,378 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 17:56:35,459 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3361 out=59
+2026-11-07 18:02:44,500 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:02:47,046 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:02:47,982 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:02:47,984 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:02:49,804 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:02:49,805 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:02:51,924 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=20
+2026-11-07 18:06:46,975 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:06:49,426 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:06:50,538 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:06:50,547 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:06:52,456 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:06:52,456 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:06:54,427 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=44
+2026-11-07 18:20:33,759 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:20:35,689 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:20:36,534 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:20:36,536 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:20:38,347 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:20:38,348 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:20:40,271 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=45
+2026-11-07 18:20:41,312 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=82 out=103
+2026-11-07 18:22:09,841 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:22:11,328 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:22:12,338 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:22:12,340 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:22:14,298 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:22:14,298 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:22:16,238 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=43
+2026-11-07 18:22:17,419 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=80 out=103
+2026-11-07 18:22:46,054 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:22:47,561 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:22:49,296 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:22:49,298 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:22:51,159 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:22:51,159 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:22:53,268 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=20
+2026-11-07 18:22:54,290 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=57 out=103
+2026-11-07 18:26:08,263 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:26:08,265 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:26:08,266 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:26:08,266 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:26:08,267 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:26:08,267 WARNING límite de iteraciones alcanzado
+2026-11-07 18:26:08,267 INFO pregunta | usuario=None | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:26:08,268 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'rodrigo'} | resultado={'error': 'base de datos de Personas no disponible'}
+2026-11-07 18:26:52,551 INFO pregunta | usuario=C-006 | ¿Cuántos días de vacaciones le quedan a Rodrigo Fuentes?
+2026-11-07 18:26:54,162 INFO Modelo elegido: gemini-3.5-flash-lite | respaldo: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.8-flash']
+2026-11-07 18:26:55,812 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3074 out=24
+2026-11-07 18:26:55,814 INFO paso=1 | tool=buscar_colaborador | args={'nombre_o_id': 'Rodrigo Fuentes'} | resultado={'coincidencias': [{'id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'cargo': 'Jefe de Tienda', 'area': 'Operaciones', 'jefatura_id': 'C-006', 'fecha_ingreso': '2015-08-01', 'modalidad': 'presencial', 'dias_vacaciones_disponibles': 18, 'dias_vacaciones_tomados_2026': 2, 'correo': 'rodrigo.fuentes@lumenretail.example'}]}
+2026-11-07 18:26:57,708 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3238 out=25
+2026-11-07 18:26:57,708 INFO paso=2 | tool=saldo_vacaciones | args={'colaborador_id': 'C-002'} | resultado={'colaborador_id': 'C-002', 'nombre': 'Rodrigo Fuentes', 'dias_disponibles': 18, 'dias_tomados_2026': 2, 'antiguedad_anios': 11.3}
+2026-11-07 18:26:59,655 INFO llamada ok | modelo=gemini-3.5-flash-lite | tokens in=3332 out=45
