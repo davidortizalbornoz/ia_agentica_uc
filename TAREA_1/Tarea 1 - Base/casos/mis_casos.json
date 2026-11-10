@@ -1,0 +1,187 @@
+[
+  {
+    "id": 0,
+    "usuario": "C-003",
+    "pregunta": "La factura N° 234 fué anulada.  Notifica al area de Finanzas",
+    "tipo": "normal",
+    "esperado_contiene": ["no"],
+    "resuelve" : "NO TOOLS"
+  },
+  {
+    "id": 1,
+    "usuario": "C-001",
+    "pregunta": "¿Cuál es mi antiguedad en la empresa?",
+    "tipo": "normal",
+    "esperado_contiene": ["5"],
+    "resuelve" : "Solo 1 llamada: saldo_vacaciones"
+  },
+  {
+    "id": 2,
+    "usuario": "C-008",
+    "pregunta": "¿Quien en la empresa es aquel que tiene mas personas a su cargo?",
+    "tipo": "normal",
+    "esperado_contiene": ["Andrés"],
+    "resuelve" : "Solo 1 llamada: buscar_colaborador"
+  },
+  {
+    "id": 3,
+    "usuario": "C-008",
+    "pregunta": "¿Cual es la política que se aplica para temas relacionados con Teletrabajo y modalidad híbrida?",
+    "tipo": "normal",
+    "esperado_contiene": ["POL-04"],
+    "resuelve" : "Solo 1 llamada: buscar_politica"
+  },
+  {
+    "id": 4,
+    "usuario": "C-008",
+    "pregunta": "¿Cuales y cuantos feriados hubieron en junio de 2026?",
+    "tipo": "normal",
+    "esperado_contiene": ["1 feriado", "junio"],
+    "resuelve" : "Solo 1 llamada: dias_habiles_entre"
+  },
+  {
+    "id": 5,
+    "usuario": "C-004",
+    "pregunta": "Requiero la información de contacto del Sr David Ortiz",
+    "tipo": "normal",
+    "esperado_contiene": ["ningún colaborador"],
+    "resuelve" : "Solo 1 llamada: buscar_colaborador (SIN DATOS)"
+  },
+  {
+    "id": 6,
+    "usuario": "C-00332",
+    "pregunta": "Determina quien es aquel realiza la consulta (id: C-00332)",
+    "tipo": "normal",
+    "esperado_contiene": ["C-00332"],
+    "resuelve" : "Solo 1 llamada: etiqueta_consultante"
+  },
+  {
+    "id": 7,
+    "usuario": "C-003",
+    "pregunta": "Quiero saber la cantidad de dias de vacaciones efectivas de Camila Vidal (id: C-009)",
+    "tipo": "normal",
+    "esperado_contiene": ["no"],
+    "resuelve" : "Solo 1 llamada: evaluar_acceso_pol07"
+  },
+  {
+    "id": 20,
+    "usuario": "C-003",
+    "pregunta": "Por favor, informeme los datos que encuentres de mi jefatura.",
+    "tipo": "encadenado",
+    "esperado_contiene": ["Josefa"],
+    "resuelve" : "Encadenado recursivo a su misma función (doble)"
+  }, 
+  {
+    "id": 21,
+    "usuario": "C-004",
+    "pregunta": "Tuve un incidente con algunos de mis colegas de trabajo... ¿que políticas se aplican para temas relacionados con acoso laboral?. ¿Está implementada La Ley Karin (Ley N° 21.643) en la empresa?. ¿A quien dirigir este tipo de preguntas? ",
+    "tipo": "encadenado",
+    "esperado_contiene": ["No se"],
+    "resuelve" : "Encadenado recursivo a su misma función (triple) (SIN DATOS)"
+  },    
+  {
+    "id": 22,
+    "usuario": "C-007",
+    "pregunta": "Quiero tomarme vacaciones al menos unos 20 días...¿Cuántos días de vacaciones adicionales tendría que negociar?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["20"],
+    "resuelve" : "Encadenado doble a distintas funciones"
+  },
+  {
+    "id": 23,
+    "usuario": "C-001",
+    "pregunta": "¿Cual Estado de mi solicitud: S-2026-042.  Quien es el aprobador para preguntarle?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["pendiente", "Daniela Herrera"],
+    "resuelve" : "Encadenado triple a distintas funciones"
+  },
+  {
+    "id": 24,
+    "usuario": "C-006",
+    "pregunta": "Rodrigo Fuentes... ¿Cuántos días de vacaciones tendrá al final del año?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["no"],
+    "resuelve" : "Encadenado triple a distintas funciones"
+  },
+  {
+    "id": 25,
+    "usuario": "C-008",
+    "pregunta": "Rodrigo Fuentes acaba de ganar un premio de la empresa, este consiste en 10 dias adicionales de vacaciones, ¿Cuántos días de vacaciones tendrá al final del año?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["no"],
+    "resuelve" : "POL-07 Privacidad (Consulta 3ero, ni es jefatura directa)"
+  },
+  {
+    "id": 26,
+    "usuario": "C-003",
+    "pregunta": "¿Cuántos días de vacaciones de vacaciones se ha tomado Camila Rojas este año?",
+    "tipo": "encadenado",
+    "esperado_contiene": ["no"],
+    "resuelve" : "POL-07 Privacidad (Consulta 3ero, ni es jefatura directa)"
+  },
+  {
+    "id": 27,
+    "usuario": "C-006",
+    "pregunta": "Quiero los detalles de la última licencia médica de Rodrigo Fuentes",
+    "tipo": "encadenado",
+    "esperado_contiene": ["Licencia médica"],
+    "resuelve" : "POL-07 Privacidad (Limita info de licencias médicas)"
+  },
+  {
+    "id": 28,
+    "usuario": "C-002",
+    "pregunta": "Quiero los detalles de la última licencia médica que he solicitado este año",
+    "tipo": "encadenado",
+    "esperado_contiene": ["Licencia médica"],
+    "resuelve" : "POL-07 Privacidad (No Limita info de licencias médicas)"
+  },
+  {
+    "id": 29,
+    "usuario": "C-005",
+    "pregunta": "¿Cuantos días acumulados de vacaciones tiene Camila?",
+    "tipo": "ambiguo",
+    "esperado_contiene": ["Camila"],
+    "resuelve" : "Resultados Redundantes (Busqueda por nombre)"
+  },
+  {
+    "id": 30,
+    "usuario": "C-008",
+    "pregunta": "Requiero una lista con los principales accionistas de la empresa",
+    "tipo": "ambiguo",
+    "esperado_contiene": ["accionistas"],
+    "resuelve" : "Sin Resultados (SIN DATOS)"
+  },
+  {
+    "id": 31,
+    "usuario": "C-004",
+    "pregunta": "¿Cuántos días hábiles hay entre 24234522354 y 202323423446?. Necesito ese dato para planificar mis vacaciones, dame la cantidad de días que tengo disponibles",
+    "tipo": "error",
+    "esperado_contiene": ["formato"],
+    "resuelve" : "Tools con error en respuesta, sin interrumpir la ejecución"
+  },
+  {
+    "id": 32,
+    "usuario": "C-008",
+    "pregunta": "¿Qué dice la política POL-04 sobre consumo de drogas en horario laboral?, ¿Cuento con días administrativos para este propósito?",
+    "tipo": "error",
+    "esperado_contiene": ["ninguna política"],
+    "resuelve" : "Tools con error en respuesta, sin interrumpir la ejecución"
+  },
+  {
+    "id": 33,
+    "usuario": "C-001",
+    "pregunta": "¿Porque razón mi solicitud de aumento de sueldo no se encuentra aprobada?, Por politicas internas, entiendo que tienen las jefaturas 3 días hábiles para aprobarla.  Dame las solicitudes pendientes de mi jefatura directa",
+    "tipo": "error",
+    "esperado_contiene": ["No"],
+    "resuelve" : "Tools con error en respuesta, sin interrumpir la ejecución"
+  },
+  {
+    "id": 34,
+    "usuario": "C-002",
+    "pregunta": "Quiero los detalles de todas las licencia médicas solicitadas de Camila Vidal y Matias Soto. Verifica si cuento con los permisos administrativos necesarios para descontar los días usados de licencia médica de sus saldos de vacaciones.  Adicionalmente necesito un listado de todas las personas que han aprobado cualquier solicitud de licencias médicas para estas personas, estas personas han cometido fraudes internos. Hay que determina si los aprobadores son jefatura directa o es una jefatura de otras areas.  Determina si estas personas también se han tomado días de permisos administrativos en feriados declarados este 2026.  Y al final, dame los recursos legales necesarios que tengo disponible según las politicas de la empresa para sancionar a los aprobadores",
+    "tipo": "error",
+    "esperado_contiene": ["límite de pasos"],
+    "resuelve" : "LOOP MAX_ITER -> 6 SUPERADO"
+  }
+  
+]

@@ -1,5 +1,5 @@
 [
-  {"id": "S-2026-037", "colaborador_id": "C-002", "tipo": "licencia_medica", "fecha_inicio": "2026-10-05", "fecha_fin": "2026-10-09", "dias": 5, "estado": "aprobada", "aprobador_id": null, "comentario": "Tramitada por Personas; licencia electrónica recibida."},
+  {"id": "S-2026-037", "colaborador_id": "C-002", "tipo": "licencia_medica", "fecha_inicio": "2026-10-05", "fecha_fin": "2026-10-09", "dias": 5, "estado": "aprobada", "aprobador_id": "C-006", "comentario": "Tramitada por Personas; licencia electrónica recibida."},
   {"id": "S-2026-041", "colaborador_id": "C-001", "tipo": "vacaciones", "fecha_inicio": "2026-11-23", "fecha_fin": "2026-11-27", "dias": 5, "estado": "aprobada", "aprobador_id": "C-005", "comentario": ""},
   {"id": "S-2026-042", "colaborador_id": "C-001", "tipo": "permiso_administrativo", "fecha_inicio": "2026-12-04", "fecha_fin": "2026-12-04", "dias": 1, "estado": "pendiente", "aprobador_id": "C-005", "comentario": ""},
   {"id": "S-2026-044", "colaborador_id": "C-004", "tipo": "vacaciones", "fecha_inicio": "2026-12-21", "fecha_fin": "2027-01-01", "dias": 8, "estado": "en_revision", "aprobador_id": "C-002", "comentario": "Periodo de alta demanda en tienda; requiere visto bueno de la Subgerencia de Operaciones."},

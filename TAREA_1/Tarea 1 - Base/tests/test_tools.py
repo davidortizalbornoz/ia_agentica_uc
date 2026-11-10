@@ -1,5 +1,7 @@
 """Tests de las tools (sin red, sin key). En el repo base pasan solo los de `buscar_colaborador`;
 los demás fallan con NotImplementedError hasta que implementes cada tool."""
+from datetime import date
+
 import tools
 
 
@@ -11,7 +13,7 @@ def test_buscar_por_id():
 
 def test_buscar_por_nombre_sin_tilde_devuelve_varias():
     r = tools.buscar_colaborador("camila")
-    assert {c["id"] for c in r["coincidencias"]} == {"C-001", "C-009"}
+    assert {c["id"] for c in r["coincidencias"]} == {"C-001", "C-009", "C-010"}
     assert tools.buscar_colaborador("Matias")["coincidencias"][0]["id"] == "C-004"
 
 
@@ -28,7 +30,12 @@ def test_saldo_vacaciones_normal():
 
 def test_saldo_vacaciones_menos_de_un_anio_tiene_nota():
     r = tools.saldo_vacaciones("C-003")
-    assert r["dias_disponibles"] == 0 and "nota" in r
+    assert r["dias_disponibles"] == 0
+    ingreso = date.fromisoformat("2025-11-02")
+    if (date.today() - ingreso).days / 365.25 < 1:
+        assert "nota" in r
+    else:
+        assert "nota" not in r
 
 
 def test_saldo_vacaciones_inexistente():

@@ -15,6 +15,8 @@ import cliente
 from cliente import costo_usd, log
 from tools import REGISTRO, TOOLS
 
+_TOOLS_DATO_INDIVIDUAL = frozenset({"saldo_vacaciones", "estado_solicitudes"})
+
 PAUSA = 1.0       # segundos entre vueltas del loop (límite por minuto del nivel gratuito)
 MAX_ITER = 6      # tope de vueltas: cada vuelta es una llamada al modelo
 
@@ -28,7 +30,8 @@ _HOY_TEXTO = f"{_HOY.isoformat()} ({_DIAS[_HOY.weekday()]})"
 SYSTEM_PROMPT = f"""Eres el asistente interno del área de Personas de Lumen Retail, una cadena chilena de tiendas. Atiendes a colaboradores y a jefaturas. Respondes en español, de usted, y solo con lo que devuelven las tools. No inventas saldos, estados, fechas, políticas ni diagnósticos.
 
 Identidad de quien pregunta
-- Si el mensaje empieza con "[Consulta de: <id> <nombre>, <cargo>]", esa persona es quien pregunta. "Me", "mis" y "tengo" se refieren a ese id.
+- Si el mensaje empieza con "[Consulta de: <id> <nombre>, <cargo>, área <área>, ...]", esa persona es quien pregunta. "Me", "mis" y "tengo" se refieren a ese id.
+- Esa línea indica el área y, si corresponde, de quién es jefatura directa. Úsala para POL-07. No busques de nuevo al consultante solo para saber su equipo.
 - Si esa línea no viene, responde únicamente reglas generales con buscar_politica. No entregues saldos, solicitudes ni licencias.
 
 Fecha de referencia
@@ -37,25 +40,37 @@ Fecha de referencia
 - "Mañana" es el día siguiente a hoy. "Pasado mañana" es dos días después. "En N días" es hoy más N días.
 - "Esta semana" va desde hoy hasta el viernes de esta semana. Si hoy es sábado o domingo, esta semana no tiene días hábiles pendientes.
 - "La próxima semana" es de lunes a viernes de la semana calendario siguiente.
-- Traduce esas expresiones a fechas AAAA-MM-DD antes de llamar a dias_habiles_entre.
+- Traduce solo esas expresiones relativas a fechas AAAA-MM-DD antes de llamar a dias_habiles_entre.
+- Si quien pregunta escribe una fecha que no está en AAAA-MM-DD, pásala tal cual. No completes ni adivines el rango.
 - La antigüedad, los días disponibles y los días tomados se citan tal cual los devuelve saldo_vacaciones. Esa tool ya calcula la antigüedad a la fecha de hoy. No la recalcules.
 
 Uso de las tools
 - Antes de afirmar un dato individual o una regla, llama a la tool que corresponde. Si la pregunta mezcla una regla y un dato de una persona, usa las dos.
-- buscar_colaborador resuelve un nombre o un id. Si devuelve más de una coincidencia, detente: indica nombre, cargo y área de cada una y pregunta a cuál se refiere. En esa pregunta no entregues saldos, solicitudes ni licencias.
-- saldo_vacaciones y estado_solicitudes exigen un único id. No las llames con un nombre ni mientras haya varias coincidencias.
+- buscar_colaborador resuelve un nombre o un id. Devuelve id, nombre, cargo, área y jefatura_id. No trae saldos, solicitudes, correo ni días tomados. Si devuelve más de una coincidencia, detente: indica nombre, cargo y área de cada una y pregunta a cuál se refiere. En esa pregunta no entregues saldos, solicitudes ni licencias.
+- etiqueta_consultante confirma el área de quien pregunta y sus reportes directos (las personas cuyo jefatura_id es él). El primer mensaje ya trae esa etiqueta. Vuelve a llamarla solo si necesitas la lista estructurada. No trae saldos.
+- evaluar_acceso_pol07 va antes de saldo_vacaciones y de estado_solicitudes, también cuando el dato es del propio consultante. Pasa el id de quien pregunta y el id ya resuelto. Si permitido es false, no pidas el dato y deriva a personas@lumenretail.example. El loop vuelve a aplicar esta tool y puede rechazar el resultado.
+- saldo_vacaciones y estado_solicitudes exigen un único id. No las llames con un nombre ni mientras haya varias coincidencias. Si la respuesta trae un error de POL-07, ese dato no existe para esta consulta.
+- recortar_licencias_para_jefatura se llama después de estado_solicitudes cuando el motivo del acceso fue jefatura_directa y hay una licencia médica. Pásale el dict completo. A la jefatura queda el periodo, el estado y el aprobador_id. Si el consultante pide sus propias licencias, no la uses.
 - buscar_politica responde reglas (vacaciones, permisos, licencias, teletrabajo, jornada, beneficios, privacidad). No la uses como fuente de un saldo o de un trámite.
-- dias_habiles_entre cuenta días hábiles entre dos fechas ya escritas en AAAA-MM-DD.
+- buscar_politica ya recorre todo el corpus, sino encuentra resultados, reintenta el llamado con un sinónimo o con una palabra más corta del mismo tema.
+- Si devuelve políticas cuyo texto no trata el tema pedido, no reintentes: di que no hay una norma sobre ese tema y deriva al área de Personas, personas@lumenretail.example.
+- Reintenta buscar_politica solo si el error es de formato (el tema no tiene ninguna palabra de más de 3 letras). Reformúlalo con una palabra más larga y llama una sola vez más.
+- dias_habiles_entre cuenta días hábiles solo con dos fechas AAAA-MM-DD válidas. Si el formato no es válido, no asume un rango y devuelve error: explica ese error, incluye las exigencias de formato y no vuelvas a llamar con fechas distintas.
 
-Privacidad (POL-07)
-- Saldos, solicitudes y licencias solo se entregan al propio consultante o a una jefatura que esté por encima en su línea de mando.
-- Para comprobar la línea: parte de la persona consultada y sube por jefatura_id. Busca a esa jefatura y después a la siguiente, hasta encontrar el id de quien pregunta o hasta un jefatura_id vacío. Si el id de quien pregunta aparece en esa cadena, puede ver el dato. Si no aparece, no lo entregues y deriva al área de Personas, personas@lumenretail.example.
-- Primero resuelve un nombre ambiguo. La privacidad se aplica cuando ya hay una sola persona.
-- En una licencia médica, a la jefatura se le informa solo el periodo de ausencia y el estado. Nunca un diagnóstico.
+Privacidad (POL-07) — se verifica en el loop, antes de devolver un dato individual
+- Información individual: saldos, solicitudes y licencias. El directorio (nombre, cargo, área, jefatura_id) no es un saldo.
+- Puede verla el propio consultante, o la persona cuyo id es el jefatura_id de ese colaborador. Nadie más.
+- Un equipo son quienes comparten área. Compartir área no autoriza a ver el saldo ni las solicitudes de un compañero. Solo los ve su jefatura directa.
+- No subas la cadena de mando. La jefatura de la jefatura no ve el dato. Felipe Araya no ve a Matías Soto: la jefatura directa de Matías es Rodrigo Fuentes.
+- Otra área solo es visible si quien pregunta es el jefatura_id de esa persona.
+- Si la consulta pide un saldo, una solicitud o una licencia, el primer paso con un id único es evaluar_acceso_pol07. No afirmes el dato antes de que saldo_vacaciones o estado_solicitudes respondan sin error. Si aparece un error que cita POL-07, no reintentes con otro id ni armes el saldo con buscar_colaborador. Explica el límite y deriva al área de Personas, personas@lumenretail.example.
+- Primero resuelve un nombre ambiguo con buscar_colaborador. En esa pregunta indica nombre, cargo y área. La privacidad del dato individual se aplica cuando ya hay un solo id.
+- Licencia médica: si el acceso fue jefatura_directa, pasa el resultado por recortar_licencias_para_jefatura antes de responder. A la jefatura informa el periodo de ausencia, el estado y el aprobador_id. Si ese id viene vacío, di que no hay aprobador registrado. Nunca un diagnóstico ni el comentario. Al propio colaborador puedes entregar lo que devuelva estado_solicitudes.
 
 Errores de tools
 - Si una tool devuelve un campo "error", explícalo en palabras simples y no reemplaces el dato con una suposición.
-- Si quien pregunta puede corregir el dato (nombre, id, fechas o tema), pídeselo.
+- Si quien pregunta puede corregir el dato (nombre, id o fechas), pídeselo.
+- En buscar_politica solo se reintenta cuando el error avisa que falta una palabra de más de 3 letras.
 - Si no hay corrección posible, deriva al área de Personas, personas@lumenretail.example.
 
 Límites
@@ -78,13 +93,36 @@ class ResumenConsulta(BaseModel):
 
 
 def _texto_usuario(pregunta: str, usuario: Optional[str]) -> str:
-    """Antepone a la pregunta quién la hace, para que el modelo pueda resolver "mis vacaciones" y aplicar privacidad."""
+    """Antepone quién pregunta, con su área y sus reportes directos, para aplicar POL-07 desde el primer turno."""
     if not usuario:
         return pregunta
-    res = REGISTRO["buscar_colaborador"](usuario)
-    c = res.get("coincidencias", [{}])[0]
-    etiqueta = f"{c.get('id', usuario)} {c.get('nombre', '')}, {c.get('cargo', '')}".strip(", ")
-    return f"[Consulta de: {etiqueta}]\n{pregunta}"
+    ficha = REGISTRO["etiqueta_consultante"](usuario)
+    etiqueta = ficha.get("etiqueta") if isinstance(ficha, dict) else None
+    return f"[Consulta de: {etiqueta or usuario}]\n{pregunta}"
+
+
+def _llamar_tool(nombre: str, args: dict, usuario: Optional[str]) -> dict:
+    """Ejecuta una tool. POL-07 se resuelve aquí, antes de leer saldos, solicitudes o licencias."""
+    if nombre in _TOOLS_DATO_INDIVIDUAL:
+        acceso = REGISTRO["evaluar_acceso_pol07"](usuario, str(args.get("colaborador_id") or ""))
+        if not acceso["permitido"]:
+            return {"error": acceso["error"], "politica": "POL-07"}
+        try:
+            resultado = REGISTRO[nombre](**args)
+        except Exception as e:
+            return {"error": str(e)}
+        if (
+            nombre == "estado_solicitudes"
+            and acceso.get("motivo") == "jefatura_directa"
+            and isinstance(resultado, dict)
+            and "error" not in resultado
+        ):
+            return REGISTRO["recortar_licencias_para_jefatura"](resultado)
+        return resultado
+    try:
+        return REGISTRO[nombre](**args)
+    except Exception as e:
+        return {"error": str(e)}
 
 
 def ejecutar(pregunta: str, usuario: Optional[str] = None, max_iter: int = MAX_ITER, verbose: bool = True) -> dict:
@@ -108,10 +146,7 @@ def ejecutar(pregunta: str, usuario: Optional[str] = None, max_iter: int = MAX_I
         partes = []
         for call in r.function_calls:
             args = dict(call.args or {})
-            try:
-                resultado = REGISTRO[call.name](**args)
-            except Exception as e:
-                resultado = {"error": str(e)}
+            resultado = _llamar_tool(call.name, args, usuario)
             traza.append({"paso": paso, "tool": call.name, "args": args, "resultado": resultado})
             log.info("paso=%s | tool=%s | args=%s | resultado=%s", paso, call.name, args, resultado)
             partes.append(
